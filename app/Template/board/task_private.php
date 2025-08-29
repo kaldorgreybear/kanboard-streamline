@@ -37,13 +37,24 @@
         <div class="task-board-expanded">
             <div class="task-board-saving-icon" style="display: none;"><i class="fa fa-spinner fa-pulse fa-2x"></i></div>
             <div class="task-board-header">
-                <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
-                    <?= $this->render('task/dropdown', array('task' => $task, 'redirect' => 'board')) ?>
-                    <?php if ($this->projectRole->canUpdateTask($task)): ?>
-                        <?= $this->modal->large('edit', '', 'TaskModificationController', 'edit', array('task_id' => $task['id'])) ?>
-                    <?php endif ?>
-                <?php else: ?>
-                    <strong><?= '#'.$task['id'] ?></strong>
+                <strong><?= '#'.$task['id'].' ' ?></strong>
+
+                <?php if (! empty($task['category_id'])): ?>
+                    <span class="task-board-category category-<?= $this->text->e($task['category_name']) ?> <?= $task['category_color_id'] ? "color-{$task['category_color_id']}" : '' ?>">
+                        <?php if ($this->user->hasProjectAccess('TaskModificationController', 'edit', $task['project_id'])): ?>
+                            <?= $this->url->link(
+                                $this->text->e($task['category_name']),
+                                'TaskModificationController',
+                                'edit',
+                                array('task_id' => $task['id']),
+                                false,
+                                'js-modal-large',
+                                t('Change category')
+                            ) ?>
+                        <?php else: ?>
+                            <?= $this->text->e($task['category_name']) ?>
+                        <?php endif ?>
+                    </span>
                 <?php endif ?>
 
                 <?= $this->render('board/task_avatar', array('task' => $task)) ?>
@@ -59,6 +70,7 @@
                 'task' => $task,
                 'not_editable' => $not_editable,
                 'project' => $project,
+                'include_category' => false,
             )) ?>
         </div>
     <?php endif ?>

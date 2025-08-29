@@ -1,6 +1,12 @@
 <div class="task-board color-<?= $task['color_id'] ?> <?= $task['date_modification'] > time() - $board_highlight_period ? 'task-board-recent' : '' ?>">
     <div class="task-board-header">
-        <?= $this->url->link('#'.$task['id'], 'TaskViewController', 'readonly', array('task_id' => $task['id'], 'token' => $project['token'])) ?>
+        <strong><?= '#'.$task['id'].' ' ?></strong>
+
+        <?php if (! empty($task['category_id'])): ?>
+            <span class="task-board-category category-<?= $this->text->e($task['category_name']) ?> <?= $task['category_color_id'] ? "color-{$task['category_color_id']}" : '' ?>">
+                <?= $this->text->e($task['category_name']) ?>
+            </span>
+        <?php endif ?>
 
         <?= $this->render('board/task_avatar', array('task' => $task)) ?>
     </div>
@@ -15,5 +21,6 @@
         'task' => $task,
         'not_editable' => $not_editable,
         'project' => $project,
+        'include_category' => false,
     )) ?>
 </div>

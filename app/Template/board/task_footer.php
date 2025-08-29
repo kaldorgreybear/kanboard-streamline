@@ -1,4 +1,9 @@
-<?php if (! empty($task['category_id'])): ?>
+<?php
+    // Allow callers to hide the category section when it is rendered elsewhere
+    $include_category = $include_category ?? true;
+?>
+
+<?php if ($include_category && ! empty($task['category_id'])): ?>
 <div class="task-board-category-container task-board-category-container-color">
     <span class="task-board-category category-<?= $this->text->e($task['category_name']) ?> <?= $task['category_color_id'] ? "color-{$task['category_color_id']}" : '' ?>">
         <?php if ($not_editable): ?>
