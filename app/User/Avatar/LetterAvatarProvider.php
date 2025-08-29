@@ -30,18 +30,17 @@ class LetterAvatarProvider extends Base implements AvatarProviderInterface
      */
     public function render(array $user, $size)
     {
-        $initials = $this->helper->user->getInitials($user['name'] ?: $user['username']);
         $rgb = $this->getBackgroundColor($user['name'] ?: $user['username']);
-        $name = $this->helper->text->e($user['name'] ?: $user['username']);
+        $label = $this->helper->text->e($user['name'] ?: $user['username']);
 
         return sprintf(
             '<div class="avatar-letter" style="background-color: rgb(%d, %d, %d)" title="%s" role="img" aria-label="%s">%s</div>',
             $rgb[0],
             $rgb[1],
             $rgb[2],
-            $name,
-            $name,
-            $this->helper->text->e($initials)
+            $label,
+            $label,
+            $label
         );
     }
 

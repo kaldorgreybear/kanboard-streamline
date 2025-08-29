@@ -46,12 +46,6 @@
                     <strong><?= '#'.$task['id'] ?></strong>
                 <?php endif ?>
 
-                <?php if (! empty($task['owner_id'])): ?>
-                    <span class="task-board-assignee">
-                        <?= $this->text->e($task['assignee_name'] ?: $task['assignee_username']) ?>
-                    </span>
-                <?php endif ?>
-
                 <?= $this->render('board/task_avatar', array('task' => $task)) ?>
             </div>
 
