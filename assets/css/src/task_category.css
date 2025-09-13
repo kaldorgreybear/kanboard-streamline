@@ -4,13 +4,17 @@
     margin-bottom: 8px
 }
 
-.task-board-category {
-    border: 1px solid #555;
+
+.task-board-category,
+.task-board-project {
+    border: 3px solid #484848;
     font-size: 0.9em;
     font-weight: 500;
     color: #000;
-    padding: 1px 3px 1px 2px;
-    border-radius: 10px
+    padding: 5px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 3px
 }
 
 .task-board-category a:hover {
