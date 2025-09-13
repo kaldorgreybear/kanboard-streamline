@@ -35,7 +35,9 @@ div.task-board-status-closed {
 
 .task-board-title {
     margin-top: 5px;
-    margin-bottom: 8px
+    margin-bottom: 8px;
+    font-weight: 600;
+    padding-left: 4px
 }
 
 .task-board-title a:hover {

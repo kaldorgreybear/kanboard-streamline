@@ -28,12 +28,16 @@
     border-radius: 10px
 }
 
+
 .avatar-20 .avatar-letter {
-    padding: 3px;
+    padding: 5px;
     font-size: 12px;
+    border: 3px solid #000;
+    width: 80px;
 }
 
 .avatar-letter {
     color: var(--avatar-color-letter);
-    text-align: center
+    text-align: center;
+    padding: 5px;
 }
