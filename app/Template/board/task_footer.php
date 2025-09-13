@@ -1,6 +1,7 @@
 <?php
-    // Allow callers to hide the category section when it is rendered elsewhere
+    // Allow callers to hide the category or tags sections when rendered elsewhere
     $include_category = $include_category ?? true;
+    $include_tags = $include_tags ?? true;
 ?>
 
 <?php if ($include_category && ! empty($task['category_id'])): ?>
@@ -26,7 +27,7 @@
 </div>
 <?php endif ?>
 
-<?php if (! empty($task['tags'])): ?>
+<?php if ($include_tags && ! empty($task['tags'])): ?>
     <div class="task-tags">
         <ul>
         <?php foreach ($task['tags'] as $tag): ?>
