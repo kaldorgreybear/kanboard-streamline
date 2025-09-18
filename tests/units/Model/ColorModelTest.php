@@ -89,5 +89,7 @@ class ColorModelTest extends Base
         $css = $colorModel->getCss();
 
         $this->assertStringStartsWith('.task-board.color-yellow', $css);
+        $this->assertStringContainsString('.task-board.color-yellow .task-board-project, .task-board.color-yellow .task-tags .task-tag, .task-summary-container.color-yellow .task-tags .task-tag {background-color: rgb(251, 252, 228);border-color: rgb(223, 227, 45);font-weight: bold;}', $css);
+        $this->assertStringContainsString('.task-tag.color-yellow {background-color: rgb(251, 252, 228);border-color: rgb(223, 227, 45);font-weight: bold;}', $css);
     }
 }

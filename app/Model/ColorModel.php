@@ -218,14 +218,70 @@ class ColorModel extends Base
         $buffer = '';
 
         foreach ($this->default_colors as $color => $values) {
-            $buffer .= '.task-board.color-'.$color.', .task-summary-container.color-'.$color.', .color-picker-square.color-'.$color.', .task-board-category.color-'.$color.', .table-list-category.color-'.$color.', .task-tag.color-'.$color.' {';
+            $lighterBackground = $this->lightenColor($values['background'], 0.25);
+
+            $buffer .= '.task-board.color-'.$color.', .task-summary-container.color-'.$color.', .color-picker-square.color-'.$color.', .task-board-category.color-'.$color.', .table-list-category.color-'.$color.' {';
             $buffer .= 'background-color: '.$values['background'].';';
             $buffer .= 'border-color: '.$values['border'];
+            $buffer .= '}';
+            $buffer .= '.task-tag.color-'.$color.' {';
+            $buffer .= 'background-color: '.$lighterBackground.';';
+            $buffer .= 'border-color: '.$values['border'].';';
+            $buffer .= 'font-weight: bold;';
+            $buffer .= '}';
+            $buffer .= '.task-board.color-'.$color.' .task-board-project, .task-board.color-'.$color.' .task-tags .task-tag, .task-summary-container.color-'.$color.' .task-tags .task-tag {';
+            $buffer .= 'background-color: '.$lighterBackground.';';
+            $buffer .= 'border-color: '.$values['border'].';';
+            $buffer .= 'font-weight: bold;';
             $buffer .= '}';
             $buffer .= 'td.color-'.$color.' { background-color: '.$values['background'].'}';
             $buffer .= '.table-list-row.color-'.$color.' {border-left: 5px solid '.$values['border'].'}';
         }
 
         return $buffer;
+    }
+
+    /**
+     * Lighten an RGB or hex color
+     *
+     * @access protected
+     * @param  string  $color
+     * @param  float   $percentage
+     * @return string
+     */
+    protected function lightenColor($color, $percentage)
+    {
+        $percentage = max(0, min(1, $percentage));
+
+        if (strpos($color, 'rgb') === 0) {
+            preg_match_all('/\d+/', $color, $matches);
+            $components = array_map('intval', array_slice($matches[0], 0, 3));
+        } else {
+            $hex = ltrim($color, '#');
+
+            if (strlen($hex) === 3) {
+                $hex = sprintf('%s%s%s', $hex[0].$hex[0], $hex[1].$hex[1], $hex[2].$hex[2]);
+            }
+
+            $components = array(
+                hexdec(substr($hex, 0, 2)),
+                hexdec(substr($hex, 2, 2)),
+                hexdec(substr($hex, 4, 2)),
+            );
+        }
+
+        if (count($components) !== 3) {
+            return $color;
+        }
+
+        foreach ($components as &$component) {
+            $mixWithWhite = $component + (255 - $component) * $percentage;
+            $scaledComponent = min(255, $component * (1 + $percentage));
+            $component = (int) round(max($mixWithWhite, ($mixWithWhite + $scaledComponent) / 2));
+            $component = max(0, min(255, $component));
+        }
+        unset($component);
+
+        return sprintf('rgb(%d, %d, %d)', $components[0], $components[1], $components[2]);
     }
 }
