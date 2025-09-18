@@ -233,7 +233,6 @@ class ColorModel extends Base
             $buffer .= 'background-color: '.$lighterBackground.';';
             $buffer .= 'border-color: '.$values['border'].';';
             $buffer .= 'font-weight: bold;';
-
             $buffer .= '}';
             $buffer .= 'td.color-'.$color.' { background-color: '.$values['background'].'}';
             $buffer .= '.table-list-row.color-'.$color.' {border-left: 5px solid '.$values['border'].'}';
@@ -276,7 +275,10 @@ class ColorModel extends Base
         }
 
         foreach ($components as &$component) {
-            $component = (int) round($component + (255 - $component) * $percentage);
+            $mixWithWhite = $component + (255 - $component) * $percentage;
+            $scaledComponent = min(255, $component * (1 + $percentage));
+            $component = (int) round(max($mixWithWhite, ($mixWithWhite + $scaledComponent) / 2));
+
             $component = max(0, min(255, $component));
         }
         unset($component);
