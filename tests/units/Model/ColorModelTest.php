@@ -29,6 +29,14 @@ class ColorModelTest extends Base
         $this->assertEquals($expected, $colorModel->getColorProperties('light_green'));
 
         $expected = array(
+            'name' => 'Dirty Green',
+            'background' => '#d4e7d0',
+            'border' => '#6b8f71',
+        );
+
+        $this->assertEquals($expected, $colorModel->getColorProperties('dirty_green'));
+
+        $expected = array(
             'name' => 'Yellow',
             'background' => 'rgb(245, 247, 196)',
             'border' => 'rgb(223, 227, 45)',
@@ -42,11 +50,11 @@ class ColorModelTest extends Base
         $colorModel = new ColorModel($this->container);
 
         $colors = $colorModel->getList();
-        $this->assertCount(16, $colors);
+        $this->assertCount(18, $colors);
         $this->assertEquals('Yellow', $colors['yellow']);
 
         $colors = $colorModel->getList(true);
-        $this->assertCount(17, $colors);
+        $this->assertCount(18, $colors);
         $this->assertEquals('All colors', $colors['']);
         $this->assertEquals('Yellow', $colors['yellow']);
     }
@@ -68,7 +76,7 @@ class ColorModelTest extends Base
         $colorModel = new ColorModel($this->container);
 
         $colors = $colorModel->getDefaultColors();
-        $this->assertCount(16, $colors);
+        $this->assertCount(18, $colors);
     }
 
     public function testGetBorderColor()
@@ -91,5 +99,11 @@ class ColorModelTest extends Base
         $this->assertStringStartsWith('.task-board.color-yellow', $css);
         $this->assertStringContainsString('.task-board.color-yellow .task-board-project, .task-board.color-yellow .task-tags .task-tag, .task-summary-container.color-yellow .task-tags .task-tag {background-color: rgb(251, 252, 228);border-color: rgb(223, 227, 45);font-weight: bold;}', $css);
         $this->assertStringContainsString('.task-tag.color-yellow {background-color: rgb(251, 252, 228);border-color: rgb(223, 227, 45);font-weight: bold;}', $css);
+        $this->assertStringContainsString('.task-board.color-purple .task-board-project, .task-board.color-purple .task-tags .task-tag, .task-summary-container.color-purple .task-tags .task-tag {background-color: rgb(242, 200, 255);border-color: rgb(205, 133, 254);font-weight: bold;}', $css);
+        $this->assertStringContainsString('.task-tag.color-purple {background-color: rgb(242, 200, 255);border-color: rgb(205, 133, 254);font-weight: bold;}', $css);
+        $this->assertStringContainsString('.task-board.color-deep_purple .task-board-project, .task-board.color-deep_purple .task-tags .task-tag, .task-summary-container.color-deep_purple .task-tags .task-tag {background-color: rgb(233, 220, 246);border-color: #673ab7;font-weight: bold;}', $css);
+        $this->assertStringContainsString('.task-tag.color-deep_purple {background-color: rgb(233, 220, 246);border-color: #673ab7;font-weight: bold;}', $css);
+        $this->assertStringContainsString('.task-board.color-dirty_green .task-board-project, .task-board.color-dirty_green .task-tags .task-tag, .task-summary-container.color-dirty_green .task-tags .task-tag {background-color: rgb(236, 245, 232);border-color: #6b8f71;font-weight: bold;}', $css);
+        $this->assertStringContainsString('.task-tag.color-dirty_green {background-color: rgb(236, 245, 232);border-color: #6b8f71;font-weight: bold;}', $css);
     }
 }

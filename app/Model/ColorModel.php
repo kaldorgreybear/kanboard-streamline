@@ -34,10 +34,20 @@ class ColorModel extends Base
             'background' => 'rgb(189, 244, 203)',
             'border' => 'rgb(74, 227, 113)',
         ),
+        'dirty_green' => array(
+            'name' => 'Dirty Green',
+            'background' => '#d4e7d0',
+            'border' => '#6b8f71',
+        ),
         'purple' => array(
             'name' => 'Purple',
             'background' => 'rgb(223, 176, 255)',
             'border' => 'rgb(205, 133, 254)',
+        ),
+        'deep_purple' => array(
+            'name' => 'Deep Purple',
+            'background' => '#d1c4e9',
+            'border' => '#673ab7',
         ),
         'red' => array(
             'name' => 'Red',
@@ -99,6 +109,17 @@ class ColorModel extends Base
             'background' => '#ffe082',
             'border' => '#ffa000',
         ),
+    );
+
+    /**
+     * Overrides for lighter shade calculations used on project headers and tags
+     *
+     * @var array<string, float>
+     */
+    protected $lighter_shade_overrides = array(
+        'purple' => 0.1875,
+        'deep_purple' => 0.1875,
+        'dirty_green' => 0.1875,
     );
 
     /**
@@ -218,7 +239,8 @@ class ColorModel extends Base
         $buffer = '';
 
         foreach ($this->default_colors as $color => $values) {
-            $lighterBackground = $this->lightenColor($values['background'], 0.25);
+            $lightenPercentage = isset($this->lighter_shade_overrides[$color]) ? $this->lighter_shade_overrides[$color] : 0.25;
+            $lighterBackground = $this->lightenColor($values['background'], $lightenPercentage);
 
             $buffer .= '.task-board.color-'.$color.', .task-summary-container.color-'.$color.', .color-picker-square.color-'.$color.', .task-board-category.color-'.$color.', .table-list-category.color-'.$color.' {';
             $buffer .= 'background-color: '.$values['background'].';';
