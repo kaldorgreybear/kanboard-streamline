@@ -34,10 +34,20 @@ class ColorModel extends Base
             'background' => 'rgb(189, 244, 203)',
             'border' => 'rgb(74, 227, 113)',
         ),
+        'dirty_green' => array(
+            'name' => 'Dirty Green',
+            'background' => '#d4e7d0',
+            'border' => '#6b8f71',
+        ),
         'purple' => array(
             'name' => 'Purple',
             'background' => 'rgb(223, 176, 255)',
             'border' => 'rgb(205, 133, 254)',
+        ),
+        'deep_purple' => array(
+            'name' => 'Deep Purple',
+            'background' => '#d1c4e9',
+            'border' => '#673ab7',
         ),
         'red' => array(
             'name' => 'Red',
