@@ -112,6 +112,17 @@ class ColorModel extends Base
     );
 
     /**
+     * Overrides for lighter shade calculations used on project headers and tags
+     *
+     * @var array<string, float>
+     */
+    protected $lighter_shade_overrides = array(
+        'purple' => 0.1875,
+        'deep_purple' => 0.1875,
+        'dirty_green' => 0.1875,
+    );
+
+    /**
      * Find a color id from the name or the id
      *
      * @access public
@@ -228,7 +239,8 @@ class ColorModel extends Base
         $buffer = '';
 
         foreach ($this->default_colors as $color => $values) {
-            $lighterBackground = $this->lightenColor($values['background'], 0.25);
+            $lightenPercentage = isset($this->lighter_shade_overrides[$color]) ? $this->lighter_shade_overrides[$color] : 0.25;
+            $lighterBackground = $this->lightenColor($values['background'], $lightenPercentage);
 
             $buffer .= '.task-board.color-'.$color.', .task-summary-container.color-'.$color.', .color-picker-square.color-'.$color.', .task-board-category.color-'.$color.', .table-list-category.color-'.$color.' {';
             $buffer .= 'background-color: '.$values['background'].';';
