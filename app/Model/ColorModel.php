@@ -278,6 +278,7 @@ class ColorModel extends Base
             $mixWithWhite = $component + (255 - $component) * $percentage;
             $scaledComponent = min(255, $component * (1 + $percentage));
             $component = (int) round(max($mixWithWhite, ($mixWithWhite + $scaledComponent) / 2));
+
             $component = max(0, min(255, $component));
         }
         unset($component);
