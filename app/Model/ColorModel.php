@@ -226,11 +226,14 @@ class ColorModel extends Base
             $buffer .= '}';
             $buffer .= '.task-tag.color-'.$color.' {';
             $buffer .= 'background-color: '.$lighterBackground.';';
-            $buffer .= 'border-color: '.$values['border'];
+            $buffer .= 'border-color: '.$values['border'].';';
+            $buffer .= 'font-weight: bold;';
             $buffer .= '}';
-            $buffer .= '.task-board.color-'.$color.' .task-board-project, .task-board.color-'.$color.' .task-tags .task-tag {';
+            $buffer .= '.task-board.color-'.$color.' .task-board-project, .task-board.color-'.$color.' .task-tags .task-tag, .task-summary-container.color-'.$color.' .task-tags .task-tag {';
             $buffer .= 'background-color: '.$lighterBackground.';';
-            $buffer .= 'border-color: '.$values['border'];
+            $buffer .= 'border-color: '.$values['border'].';';
+            $buffer .= 'font-weight: bold;';
+
             $buffer .= '}';
             $buffer .= 'td.color-'.$color.' { background-color: '.$values['background'].'}';
             $buffer .= '.table-list-row.color-'.$color.' {border-left: 5px solid '.$values['border'].'}';
