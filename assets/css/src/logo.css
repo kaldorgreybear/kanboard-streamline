@@ -1,19 +1,18 @@
 .logo a {
-    opacity: 0.5;
-    color: #d40000;
-    text-decoration: none
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.2s ease-in-out;
 }
 
-.logo span {
-    color: var(--color-primary);
-}
-
+.logo a:focus,
 .logo a:hover {
-    opacity: 0.8;
-    color: var(--color-primary);
+    opacity: 1;
 }
 
-.logo a:focus span,
-.logo a:hover span {
-    color: #d40000
+.logo-image {
+    display: block;
+    height: 32px;
+    width: auto;
 }

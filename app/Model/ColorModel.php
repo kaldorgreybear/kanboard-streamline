@@ -233,6 +233,7 @@ class ColorModel extends Base
             $buffer .= 'background-color: '.$lighterBackground.';';
             $buffer .= 'border-color: '.$values['border'].';';
             $buffer .= 'font-weight: bold;';
+
             $buffer .= '}';
             $buffer .= 'td.color-'.$color.' { background-color: '.$values['background'].'}';
             $buffer .= '.table-list-row.color-'.$color.' {border-left: 5px solid '.$values['border'].'}';
