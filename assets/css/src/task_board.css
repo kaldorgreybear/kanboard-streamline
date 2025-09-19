@@ -33,11 +33,28 @@ div.task-board-status-closed {
     text-overflow: ellipsis
 }
 
+.task-board-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .task-board-title {
-    margin-top: 5px;
-    margin-bottom: 8px;
-    font-weight: 600;
-    padding-left: 4px
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    font-weight: 700;
+}
+
+.task-board-title a {
+    display: block;
+    max-width: 100%;
+    color: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: inherit;
 }
 
 .task-board-title a:hover {
@@ -57,8 +74,10 @@ div.task-board-status-closed {
 }
 
 .task-board-avatars {
+    margin-left: auto;
     text-align: right;
-    float: right
+    display: flex;
+    align-items: center
 }
 
 .task-board-change-assignee {
