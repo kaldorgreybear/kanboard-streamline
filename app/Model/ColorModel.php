@@ -256,7 +256,7 @@ class ColorModel extends Base
             $buffer .= 'background-color: '.$values['background'].';';
             $buffer .= 'border-color: '.$values['border'];
             $buffer .= '}';
-            $buffer .= '.task-tag.color-'.$color.', .task-board-assignee-tag.color-'.$color.' {';
+            $buffer .= '.task-tag.color-'.$color.' {';
             $buffer .= 'background-color: '.$lighterBackground.';';
             $buffer .= 'border-color: '.$values['border'].';';
             $buffer .= 'font-weight: bold;';
