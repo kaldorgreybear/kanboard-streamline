@@ -4,6 +4,7 @@ namespace Kanboard\Helper;
 
 use Closure;
 use Kanboard\Core\Base;
+use Throwable;
 
 /**
  * Template Hook helpers
@@ -46,17 +47,35 @@ class HookHelper extends Base
 
         foreach ($this->hook->getListeners($hook) as $params) {
             $currentVariables = $variables;
-            if (! empty($params['variables'])) {
-                $currentVariables = array_merge($variables, $params['variables']);
-            } elseif (! empty($params['callable'])) {
-                $result = call_user_func_array($params['callable'], array_values($variables));
 
-                if (is_array($result)) {
-                    $currentVariables = array_merge($variables, $result);
+            try {
+                if (! empty($params['variables'])) {
+                    $currentVariables = array_merge($variables, $params['variables']);
+                } elseif (! empty($params['callable'])) {
+                    $result = call_user_func_array($params['callable'], array_values($variables));
+
+                    if (is_array($result)) {
+                        $currentVariables = array_merge($variables, $result);
+                    }
                 }
-            }
 
-            $buffer .= $this->template->render($params['template'], $currentVariables);
+                $buffer .= $this->template->render($params['template'], $currentVariables);
+            } catch (Throwable $exception) {
+                $this->logger->error(
+                    sprintf(
+                        'Unable to render hook "%s" for template "%s": %s',
+                        $hook,
+                        $params['template'],
+                        $exception->getMessage()
+                    ),
+                    array(
+                        'hook' => $hook,
+                        'template' => $params['template'],
+                        'variables' => $currentVariables,
+                        'exception' => $exception,
+                    )
+                );
+            }
         }
 
         return $buffer;
