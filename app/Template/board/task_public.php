@@ -14,14 +14,14 @@
             </div>
         <?php endif ?>
 
+        <?= $this->hook->render('template:board:public:task:before-title', array('task' => $task)) ?>
+        <div class="task-board-title">
+            <strong><?= $this->url->link($this->text->e($task['title']), 'TaskViewController', 'readonly', array('task_id' => $task['id'], 'token' => $project['token'])) ?></strong>
+        </div>
+        <?= $this->hook->render('template:board:public:task:after-title', array('task' => $task)) ?>
+
         <?= $this->render('board/task_avatar', array('task' => $task)) ?>
     </div>
-
-    <?= $this->hook->render('template:board:public:task:before-title', array('task' => $task)) ?>
-    <div class="task-board-title">
-        <?= $this->url->link($this->text->e($task['title']), 'TaskViewController', 'readonly', array('task_id' => $task['id'], 'token' => $project['token'])) ?>
-    </div>
-    <?= $this->hook->render('template:board:public:task:after-title', array('task' => $task)) ?>
 
     <?= $this->render('board/task_footer', array(
         'task' => $task,
