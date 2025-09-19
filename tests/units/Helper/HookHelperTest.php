@@ -135,4 +135,45 @@ class HookHelperTest extends Base
         $this->assertStringContainsString('<link rel="stylesheet" href="skin.css"></link>', $hookHelper->asset('css', 'test1'));
         $this->assertStringContainsString('<script src="skin.js"></script>', $hookHelper->asset('js', 'test2'));
     }
+
+    public function testRenderCatchesThrowable()
+    {
+        $exception = new \RuntimeException('Something went wrong');
+
+        $this->container['template'] = $this
+            ->getMockBuilder('\\Kanboard\\Core\\Template')
+            ->setConstructorArgs(array($this->container['helper']))
+            ->setMethods(array('render'))
+            ->getMock();
+
+        $this->container['template']
+            ->expects($this->once())
+            ->method('render')
+            ->with($this->equalTo('tpl1'), $this->equalTo(array()))
+            ->will($this->throwException($exception));
+
+        $logger = $this
+            ->getMockBuilder('Psr\\Log\\LoggerInterface')
+            ->getMock();
+
+        $logger
+            ->expects($this->once())
+            ->method('error')
+            ->with(
+                $this->stringContains('Unable to render hook "test" for template "tpl1"'),
+                $this->callback(function ($context) use ($exception) {
+                    return isset($context['hook'], $context['template'], $context['exception'])
+                        && $context['hook'] === 'test'
+                        && $context['template'] === 'tpl1'
+                        && $context['exception'] === $exception;
+                })
+            );
+
+        $this->container['logger'] = $logger;
+
+        $hookHelper = new HookHelper($this->container);
+        $hookHelper->attach('test', 'tpl1');
+
+        $this->assertSame('', $hookHelper->render('test'));
+    }
 }
