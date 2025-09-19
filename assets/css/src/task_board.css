@@ -27,6 +27,12 @@ div.task-board-status-closed {
     text-decoration: none
 }
 
+.task-board-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .task-board-collapsed {
     overflow: hidden;
     white-space: nowrap;
