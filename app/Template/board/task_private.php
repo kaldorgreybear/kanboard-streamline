@@ -50,9 +50,9 @@
                 <?php endif ?>
 
                 <?= $this->hook->render('template:board:private:task:before-title', array('task' => $task)) ?>
-                <div class="task-board-title">
-                    <strong><?= $this->url->link($this->text->e($task['title']), 'TaskViewController', 'show', array('task_id' => $task['id'])) ?></strong>
-                </div>
+                <strong class="task-board-title">
+                    <?= $this->url->link($this->text->e($task['title']), 'TaskViewController', 'show', array('task_id' => $task['id'])) ?>
+                </strong>
                 <?= $this->hook->render('template:board:private:task:after-title', array('task' => $task)) ?>
 
                 <?= $this->render('board/task_avatar', array('task' => $task)) ?>
