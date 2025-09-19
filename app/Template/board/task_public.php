@@ -1,9 +1,7 @@
 <div class="task-board color-<?= $task['color_id'] ?> <?= $task['date_modification'] > time() - $board_highlight_period ? 'task-board-recent' : '' ?>">
     <div class="task-board-header">
-        <strong><?= '#'.$task['id'].' ' ?></strong>
-
-        <?php if (! empty($task['project_name'])): ?>
-            <span class="task-board-project"><?= $this->text->e($task['project_name']) ?></span>
+        <?php if (! empty($task['category_name'])): ?>
+            <span class="task-board-project"><?= $this->text->e($task['category_name']) ?></span>
         <?php endif ?>
 
         <?php if (! empty($task['tags'])): ?>

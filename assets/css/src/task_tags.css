@@ -9,7 +9,8 @@
     padding: 0;
 }
 
-.task-tags li {
+.task-tags li,
+.task-tag {
     display: inline-block;
     margin: 0 3px 0 0;
     padding: 5px;
