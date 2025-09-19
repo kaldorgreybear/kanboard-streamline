@@ -5,14 +5,9 @@
     <?php else: ?>
     <span>
     <?php endif ?>
-        <?= $this->avatar->small(
-            $task['owner_id'],
-            $task['assignee_username'],
-            $task['assignee_name'],
-            $task['assignee_email'],
-            $task['assignee_avatar_path'],
-            'avatar-inline'
-        ) ?>
+        <span class="task-tag task-board-assignee-tag <?= ! empty($task['color_id']) ? 'color-'.$task['color_id'] : '' ?>">
+            <?= $this->text->e($task['assignee_name'] ?: $task['assignee_username']) ?>
+        </span>
     </span>
 </div>
 <?php endif ?>
