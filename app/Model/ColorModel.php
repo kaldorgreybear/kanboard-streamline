@@ -123,6 +123,16 @@ class ColorModel extends Base
     );
 
     /**
+     * Colors where the assignee avatar should match the category color exactly
+     *
+     * @var string[]
+     */
+    protected $assignee_category_color_matches = array(
+        'green',
+        'purple',
+    );
+
+    /**
      * Find a color id from the name or the id
      *
      * @access public
@@ -251,6 +261,13 @@ class ColorModel extends Base
             $buffer .= 'border-color: '.$values['border'].';';
             $buffer .= 'font-weight: bold;';
             $buffer .= '}';
+            if (in_array($color, $this->assignee_category_color_matches, true)) {
+                $buffer .= '.task-board-assignee-tag.color-'.$color.' {';
+                $buffer .= 'background-color: '.$values['background'].';';
+                $buffer .= 'border-color: '.$values['border'].';';
+                $buffer .= 'font-weight: bold;';
+                $buffer .= '}';
+            }
             $buffer .= '.task-board.color-'.$color.' .task-board-project, .task-board.color-'.$color.' .task-tags .task-tag, .task-summary-container.color-'.$color.' .task-tags .task-tag {';
             $buffer .= 'background-color: '.$lighterBackground.';';
             $buffer .= 'border-color: '.$values['border'].';';
