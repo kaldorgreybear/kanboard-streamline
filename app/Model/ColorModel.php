@@ -46,8 +46,8 @@ class ColorModel extends Base
         ),
         'deep_purple' => array(
             'name' => 'Deep Purple',
-            'background' => '#d1c4e9',
-            'border' => '#673ab7',
+            'background' => '#dfc5fe',
+            'border' => '#dfc5fe',
         ),
         'red' => array(
             'name' => 'Red',
