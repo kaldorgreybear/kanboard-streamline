@@ -118,7 +118,7 @@ class ColorModel extends Base
      */
     protected $lighter_shade_overrides = array(
         'purple' => 0.1875,
-        'deep_purple' => 0.1875,
+        'deep_purple' => 0.0,
         'dirty_green' => 0.1875,
     );
 
