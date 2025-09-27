@@ -253,7 +253,11 @@ class ColorModel extends Base
             $lighterBackground = $this->lightenColor($values['background'], $lightenPercentage);
 
             $buffer .= '.task-board.color-'.$color.', .task-summary-container.color-'.$color.', .color-picker-square.color-'.$color.', .task-board-category.color-'.$color.', .table-list-category.color-'.$color.' {';
-            $buffer .= 'background-color: '.$values['background'].';';
+            if ($color === 'deep_purple') {
+                $buffer .= 'background-color: transparent;';
+            } else {
+                $buffer .= 'background-color: '.$values['background'].';';
+            }
             $buffer .= 'border-color: '.$values['border'];
             $buffer .= '}';
             $buffer .= '.task-tag.color-'.$color.' {';

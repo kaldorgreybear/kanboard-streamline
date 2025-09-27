@@ -105,6 +105,7 @@ class ColorModelTest extends Base
         $this->assertStringContainsString('.task-board-assignee-tag.color-purple {background-color: rgb(223, 176, 255);border-color: rgb(205, 133, 254);font-weight: bold;}', $css);
         $this->assertStringContainsString('.task-tag.color-green, .task-board-assignee-tag.color-green {background-color: rgb(221, 251, 235);border-color: rgb(74, 227, 113);font-weight: bold;}', $css);
         $this->assertStringContainsString('.task-board-assignee-tag.color-green {background-color: rgb(189, 244, 203);border-color: rgb(74, 227, 113);font-weight: bold;}', $css);
+        $this->assertStringContainsString('.task-board.color-deep_purple, .task-summary-container.color-deep_purple, .color-picker-square.color-deep_purple, .task-board-category.color-deep_purple, .table-list-category.color-deep_purple {background-color: transparent;border-color: #610288;}', $css);
         $this->assertStringContainsString('.task-board.color-deep_purple .task-board-project, .task-board.color-deep_purple .task-tags .task-tag, .task-summary-container.color-deep_purple .task-tags .task-tag {background-color: rgb(223, 197, 254);border-color: #610288;font-weight: bold;}', $css);
         $this->assertStringContainsString('.task-tag.color-deep_purple {background-color: rgb(223, 197, 254);border-color: #610288;font-weight: bold;}', $css);
         $this->assertStringContainsString('.task-board-assignee-tag.color-deep_purple {background-color: rgb(223, 197, 254);border-color: #610288;font-weight: bold;}', $css);
