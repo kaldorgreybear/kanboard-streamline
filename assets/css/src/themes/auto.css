@@ -87,7 +87,7 @@
     --dropdown-border-color: #b2b2b2;
     --dropdown-li-border-color: #f8f8f8;
 
-    --input-addon-background-color: rgba(147, 128, 108, 0.1);
+    --input-addon-background-color: #93806c1a;
     --input-addon-color: #666;
 
     --views-background-color: #fafafa;
@@ -95,8 +95,8 @@
     --views-active-color: #000;
 
     --input-focus-color: #000;
-    --input-focus-border-color: rgba(82, 168, 236, 0.8);
-    --input-focus-shadow-color: rgba(82, 168, 236, 0.6);
+    --input-focus-border-color: #52a8eccc;
+    --input-focus-shadow-color: #52a8ec99;
     --input-background-color: #fff;
     --input-border-color: #ccc;
     --input-placeholder-color: #dedede;
@@ -195,7 +195,7 @@ html {
 
         --table-header-background-color: #1a1a1a;
         --table-nth-background-color: #2d2c2c;
-        --table-border-color: rgba(147, 128, 108, 0.25);
+        --table-border-color: #93806c40;
 
         --avatar-color-letter: #fff;
 
@@ -208,30 +208,30 @@ html {
 
         --board-task-limit-color: #DF5353;
 
-        --table-list-header-border-color: rgba(147, 128, 108, 0.25);
-        --table-list-header-background-color: rgb(59, 59, 59);
+        --table-list-header-border-color: #93806c40;
+        --table-list-header-background-color: #3b3b3b;
         --table-list-nth-background-color: #2d2c2c;
-        --table-list-border-color: rgba(147, 128, 108, 0.25);
-        --table-list-row-hover-border-color: rgba(147, 128, 108, 0.25);
+        --table-list-border-color: #93806c40;
+        --table-list-row-hover-border-color: #93806c40;
         --table-list-row-background-color: #434343;
 
-        --sidebar-border-color: rgba(147, 128, 108, 0.25);
+        --sidebar-border-color: #93806c40;
 
         --dropdown-background-color: #222;
         --dropdown-border-color: #000;
         --dropdown-li-border-color: #555;
 
         --input-addon-background-color: #1a1a1a;
-        --input-addon-color: rgba(147, 128, 108, 0.25);
+        --input-addon-color: #93806c40;
 
         --views-background-color: #1a1a1a;
-        --views-border-color: rgba(147, 128, 108, 0.25);
+        --views-border-color: #93806c40;
         --views-active-color: #949494;
 
         --input-focus-color: #e6edf3;
-        --input-focus-border-color: rgba(82, 168, 236, 0.8);
-        --input-focus-shadow-color: rgba(82, 168, 236, 0.6);
-        --input-background-color: rgb(59, 59, 59);
+        --input-focus-border-color: #52a8eccc;
+        --input-focus-shadow-color: #52a8ec99;
+        --input-background-color: #3b3b3b;
         --input-border-color: #777575;
         --input-placeholder-color: #666;
 

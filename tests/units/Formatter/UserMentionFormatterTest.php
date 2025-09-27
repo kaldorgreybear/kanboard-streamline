@@ -34,7 +34,7 @@ class UserMentionFormatterTest extends Base
             ),
             array(
                 'value' => 'somebody',
-                'html' => '<div class="avatar avatar-20 avatar-inline"><div class="avatar-letter" style="background-color: rgb(191, 210, 121)" title="somebody" role="img" aria-label="somebody">somebody</div></div> somebody',
+                'html' => '<div class="avatar avatar-20 avatar-inline"><div class="avatar-letter" style="background-color: #bfd279" title="somebody" role="img" aria-label="somebody">somebody</div></div> somebody',
             ),
         );
 

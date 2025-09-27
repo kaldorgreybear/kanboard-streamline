@@ -21,18 +21,18 @@ class ColorModel extends Base
     protected $default_colors = array(
         'yellow' => array(
             'name' => 'Yellow',
-            'background' => 'rgb(245, 247, 196)',
-            'border' => 'rgb(223, 227, 45)',
+            'background' => '#f5f7c4',
+            'border' => '#dfe32d',
         ),
         'blue' => array(
             'name' => 'Blue',
-            'background' => 'rgb(219, 235, 255)',
-            'border' => 'rgb(168, 207, 255)',
+            'background' => '#dbebff',
+            'border' => '#a8cfff',
         ),
         'green' => array(
             'name' => 'Green',
-            'background' => 'rgb(189, 244, 203)',
-            'border' => 'rgb(74, 227, 113)',
+            'background' => '#bdf4cb',
+            'border' => '#4ae371',
         ),
         'dirty_green' => array(
             'name' => 'Dirty Green',
@@ -41,8 +41,8 @@ class ColorModel extends Base
         ),
         'purple' => array(
             'name' => 'Purple',
-            'background' => 'rgb(223, 176, 255)',
-            'border' => 'rgb(205, 133, 254)',
+            'background' => '#dfb0ff',
+            'border' => '#cd85fe',
         ),
         'deep_purple' => array(
             'name' => 'Deep Purple',
@@ -51,18 +51,18 @@ class ColorModel extends Base
         ),
         'red' => array(
             'name' => 'Red',
-            'background' => 'rgb(255, 187, 187)',
-            'border' => 'rgb(255, 151, 151)',
+            'background' => '#ffbbbb',
+            'border' => '#ff9797',
         ),
         'orange' => array(
             'name' => 'Orange',
-            'background' => 'rgb(255, 215, 179)',
-            'border' => 'rgb(255, 172, 98)',
+            'background' => '#ffd7b3',
+            'border' => '#ffac62',
         ),
         'grey' => array(
             'name' => 'Grey',
-            'background' => 'rgb(238, 238, 238)',
-            'border' => 'rgb(204, 204, 204)',
+            'background' => '#eeeeee',
+            'border' => '#cccccc',
         ),
         'brown' => array(
             'name' => 'Brown',
@@ -326,6 +326,6 @@ class ColorModel extends Base
         }
         unset($component);
 
-        return sprintf('rgb(%d, %d, %d)', $components[0], $components[1], $components[2]);
+        return sprintf('#%02x%02x%02x', $components[0], $components[1], $components[2]);
     }
 }

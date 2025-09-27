@@ -87,7 +87,7 @@
     --dropdown-border-color: #b2b2b2;
     --dropdown-li-border-color: #f8f8f8;
 
-    --input-addon-background-color: rgba(147, 128, 108, 0.1);
+    --input-addon-background-color: #93806c1a;
     --input-addon-color: #666;
 
     --views-background-color: #fafafa;
@@ -95,8 +95,8 @@
     --views-active-color: #000;
 
     --input-focus-color: #000;
-    --input-focus-border-color: rgba(82, 168, 236, 0.8);
-    --input-focus-shadow-color: rgba(82, 168, 236, 0.6);
+    --input-focus-border-color: #52a8eccc;
+    --input-focus-shadow-color: #52a8ec99;
     --input-background-color: #fff;
     --input-border-color: #ccc;
     --input-placeholder-color: #dedede;
