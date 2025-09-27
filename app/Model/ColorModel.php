@@ -46,8 +46,8 @@ class ColorModel extends Base
         ),
         'deep_purple' => array(
             'name' => 'Deep Purple',
-            'background' => '#d1c4e9',
-            'border' => '#673ab7',
+            'background' => '#dfc5fe',
+            'border' => '#610288',
         ),
         'red' => array(
             'name' => 'Red',
@@ -118,7 +118,7 @@ class ColorModel extends Base
      */
     protected $lighter_shade_overrides = array(
         'purple' => 0.1875,
-        'deep_purple' => 0.1875,
+        'deep_purple' => 0.0,
         'dirty_green' => 0.1875,
     );
 
@@ -253,7 +253,11 @@ class ColorModel extends Base
             $lighterBackground = $this->lightenColor($values['background'], $lightenPercentage);
 
             $buffer .= '.task-board.color-'.$color.', .task-summary-container.color-'.$color.', .color-picker-square.color-'.$color.', .task-board-category.color-'.$color.', .table-list-category.color-'.$color.' {';
-            $buffer .= 'background-color: '.$values['background'].';';
+            if ($color === 'deep_purple') {
+                $buffer .= 'background-color: transparent;';
+            } else {
+                $buffer .= 'background-color: '.$values['background'].';';
+            }
             $buffer .= 'border-color: '.$values['border'];
             $buffer .= '}';
             $buffer .= '.task-tag.color-'.$color.' {';
