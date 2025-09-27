@@ -31,13 +31,12 @@ class LetterAvatarProvider extends Base implements AvatarProviderInterface
     public function render(array $user, $size)
     {
         $rgb = $this->getBackgroundColor($user['name'] ?: $user['username']);
+        $hexColor = sprintf('#%02x%02x%02x', $rgb[0], $rgb[1], $rgb[2]);
         $label = $this->helper->text->e($user['name'] ?: $user['username']);
 
         return sprintf(
-            '<div class="avatar-letter" style="background-color: rgb(%d, %d, %d)" title="%s" role="img" aria-label="%s">%s</div>',
-            $rgb[0],
-            $rgb[1],
-            $rgb[2],
+            '<div class="avatar-letter" style="background-color: %s" title="%s" role="img" aria-label="%s">%s</div>',
+            $hexColor,
             $label,
             $label,
             $label

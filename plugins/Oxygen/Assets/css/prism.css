@@ -10,7 +10,7 @@ code[class*="language-"],
 pre[class*="language-"] {
 	color: #f8f8f2;
 	background: none;
-	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px #0000004d;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	text-align: left;
 	white-space: pre;
@@ -209,8 +209,8 @@ div.code-toolbar > .toolbar span {
 	font-size: .8em;
 	padding: 0 .5em;
 	background: #f5f2f0;
-	background: rgba(224, 224, 224, 0.2);
-	box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+    background: #e0e0e033;
+    box-shadow: 0 2px 0 0 #00000033;
 	border-radius: .5em;
 }
 
