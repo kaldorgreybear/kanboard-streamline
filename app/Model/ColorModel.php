@@ -272,6 +272,11 @@ class ColorModel extends Base
                 $buffer .= 'font-weight: bold;';
                 $buffer .= '}';
             }
+            if ($color === 'deep_purple') {
+                $buffer .= '.task-board.color-'.$color.' {';
+                $buffer .= 'background-color: #b180d091;';
+                $buffer .= '}';
+            }
             $buffer .= '.task-board.color-'.$color.' .task-board-project, .task-board.color-'.$color.' .task-tags .task-tag, .task-summary-container.color-'.$color.' .task-tags .task-tag {';
             $buffer .= 'background-color: '.$lighterBackground.';';
             $buffer .= 'border-color: '.$values['border'].';';

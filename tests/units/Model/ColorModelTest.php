@@ -106,6 +106,7 @@ class ColorModelTest extends Base
         $this->assertStringContainsString('.task-tag.color-green, .task-board-assignee-tag.color-green {background-color: #ddfbeb;border-color: #4ae371;font-weight: bold;}', $css);
         $this->assertStringContainsString('.task-board-assignee-tag.color-green {background-color: #bdf4cb;border-color: #4ae371;font-weight: bold;}', $css);
         $this->assertStringContainsString('.task-board.color-deep_purple, .task-summary-container.color-deep_purple, .color-picker-square.color-deep_purple, .task-board-category.color-deep_purple, .table-list-category.color-deep_purple {background-color: transparent;border-color: #610288;}', $css);
+        $this->assertStringContainsString('.task-board.color-deep_purple {background-color: #b180d091;}', $css);
         $this->assertStringContainsString('.task-board.color-deep_purple .task-board-project, .task-board.color-deep_purple .task-tags .task-tag, .task-summary-container.color-deep_purple .task-tags .task-tag {background-color: #dfc5fe;border-color: #610288;font-weight: bold;}', $css);
         $this->assertStringContainsString('.task-tag.color-deep_purple {background-color: #dfc5fe;border-color: #610288;font-weight: bold;}', $css);
         $this->assertStringContainsString('.task-board-assignee-tag.color-deep_purple {background-color: #dfc5fe;border-color: #610288;font-weight: bold;}', $css);
