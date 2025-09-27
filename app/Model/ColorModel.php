@@ -46,8 +46,8 @@ class ColorModel extends Base
         ),
         'deep_purple' => array(
             'name' => 'Deep Purple',
-            'background' => '#d1c4e9',
-            'border' => '#673ab7',
+            'background' => '#dfc5fe',
+            'border' => '#610288',
         ),
         'red' => array(
             'name' => 'Red',
@@ -118,7 +118,7 @@ class ColorModel extends Base
      */
     protected $lighter_shade_overrides = array(
         'purple' => 0.1875,
-        'deep_purple' => 0.1875,
+        'deep_purple' => 0.0,
         'dirty_green' => 0.1875,
     );
 
