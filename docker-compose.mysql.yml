@@ -4,7 +4,7 @@ name: kanboardv2
 services:
   app:
     image: ${KANBOARD_IMAGE:-kanboard/kanboard:latest}
-    container_name: kanboard
+    container_name: kanboardv2
     restart: always
     ports:
      - "80:80"
