@@ -1,6 +1,6 @@
 # Sample docker-compose file to run Kanboard with Mariadb
 # More information at https://docs.kanboard.org/v1/admin/docker/
-name: kanboard
+name: kanboardv2
 services:
   app:
     image: ${KANBOARD_IMAGE:-kanboard/kanboard:latest}
