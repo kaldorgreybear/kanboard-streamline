@@ -41,20 +41,19 @@ header {
 header .title-container h1 {
         display: flex;
         align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-}
-header .title-container h1 .logo,
-header .title-container h1 .title {
-        display: flex;
-        align-items: center;
 }
 header .title-container h1 .logo {
         flex-shrink: 0;
 }
-header .title-container h1 .title {
-        gap: 0.4em;
-        min-width: 0;
+header .menus-container {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+}
+header .menus-container .title {
+        font-weight: 600;
 }
 .header img {
   float: left;

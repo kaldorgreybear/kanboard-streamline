@@ -9,28 +9,28 @@ header {
 
 header .title-container {
     flex: 1;
-    min-width: 300px
+    min-width: 120px;
 }
 
 @media (max-width: 480px) {
     header .title-container {
-        order: 3
+        order: 3;
     }
 }
 
 header .board-selector-container {
     min-width: 320px;
     display: flex;
-    align-items: center
+    align-items: center;
 }
 
 @media (max-width: 480px) {
     header .board-selector-container {
         order: 2;
-        min-width: 300px
+        min-width: 300px;
     }
     header .board-selector-container input[type=text] {
-        max-width: 280px
+        max-width: 280px;
     }
 }
 
@@ -38,24 +38,26 @@ header .menus-container {
     min-width: 120px;
     display: flex;
     align-items: center;
-    justify-content: flex-end
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 @media (max-width: 480px) {
     header .menus-container {
         order: 1;
         margin-bottom: 5px;
-        margin-left: auto
+        margin-left: auto;
     }
 }
 
 header h1 {
-    font-size: 1.5em
+    font-size: 1.5em;
 }
 
-header h1 .tooltip {
+header .menus-container .tooltip {
     opacity: 0.3;
-    font-size: 0.7em
+    font-size: 0.7em;
 }
 
 a i.web-notification-icon {
@@ -64,5 +66,5 @@ a i.web-notification-icon {
 
 a i.web-notification-icon:focus,
 a i.web-notification-icon:hover {
-    color: #000
+    color: #000;
 }
