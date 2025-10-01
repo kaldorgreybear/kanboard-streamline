@@ -11,16 +11,17 @@ class Plugin extends Base
     {
         global $themeOxygenConfig;
 
-        if (file_exists('plugins/Oxygen/config.php')) 
+        if (file_exists('plugins/Oxygen/config.php'))
         {
             require_once('plugins/Oxygen/config.php');
         }
 
-        if (isset($themeOxygenConfig['logo'])) 
+        if (isset($themeOxygenConfig['logo']))
         {
+            $this->template->setTemplateOverride('header/logo', 'Oxygen:layout/header/logo');
             $this->template->setTemplateOverride('header/title', 'Oxygen:layout/header/title');
         }
-		
+
         $this->hook->on("template:layout:css", array("template" => "plugins/Oxygen/Assets/css/oxygen.css"));
 
         $this->hook->on("template:layout:css", array("template" => "plugins/Oxygen/Assets/css/prism.css"));
