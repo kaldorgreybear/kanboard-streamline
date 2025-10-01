@@ -7,8 +7,8 @@ services:
     container_name: kanboardv2
     restart: always
     ports:
-     - "80:80"
-     - "443:443"
+     - "11000:80"
+     - "11001:443"
     volumes:
      - data:/var/www/app/data
      - plugins:/var/www/app/plugins
