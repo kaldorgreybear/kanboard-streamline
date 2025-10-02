@@ -1,0 +1,41 @@
+CREATE TABLE IF NOT EXISTS boards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS columns (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    board_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    position INT NOT NULL,
+    CONSTRAINT fk_columns_board FOREIGN KEY (board_id) REFERENCES boards(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    column_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    owner VARCHAR(100),
+    color VARCHAR(7) DEFAULT '#2980b9',
+    due_date DATE,
+    priority INT DEFAULT 0,
+    is_active TINYINT(1) DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT fk_tasks_column FOREIGN KEY (column_id) REFERENCES columns(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS task_actions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    task_id INT NOT NULL,
+    action VARCHAR(255) NOT NULL,
+    payload JSON,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_actions_task FOREIGN KEY (task_id) REFERENCES tasks(id)
+        ON DELETE CASCADE
+);

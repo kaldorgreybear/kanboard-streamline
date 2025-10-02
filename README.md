@@ -26,6 +26,16 @@ Table of Contents
     - [Upgrade to a new version](https://docs.kanboard.org/v1/admin/upgrade/)
     - [Use Kanboard with Docker](https://docs.kanboard.org/v1/admin/docker/)
 
+Modern React + MariaDB Implementation
+------------------------------------
+
+This repository now includes an alternative stack that recreates the classic Kanboard board workflow using a React front-end and a MariaDB-backed Express API. The source lives under [`modern-app/`](modern-app/) and is split into independent `frontend` and `backend` packages:
+
+- [`modern-app/backend`](modern-app/backend) — Express REST API with MariaDB persistence, mirroring the legacy PHP features for boards, columns, and tasks.
+- [`modern-app/frontend`](modern-app/frontend) — Vite + React client that consumes the REST API and offers task creation, inline editing, and deletion in a Kanban-style layout.
+
+Each package contains its own README with setup instructions. Together they deliver the same functionality as the PHP application while providing a modern JavaScript-based stack.
+
 Credits
 -------
 
